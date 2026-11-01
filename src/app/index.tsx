@@ -3,6 +3,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import {
   ActivityIndicator,
   Alert,
+  Image,
   ImageBackground,
   Linking,
   Pressable,
@@ -559,9 +560,12 @@ export default function Index() {
         >
           <View style={styles.header}>
             <View style={styles.brandContainer}>
-              <View style={styles.logo}>
-                <Text style={styles.logoText}>R</Text>
-              </View>
+              <Image
+                source={require("../../assets/images/roleja-icon.png")}
+                style={styles.logo}
+                resizeMode="contain"
+                accessibilityLabel="Logo RolêJá"
+              />
 
               <Text style={styles.brand}>
                 Rolê<Text style={styles.brandHighlight}>Já</Text>
@@ -810,20 +814,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    width: 43,
-    height: 43,
-    borderRadius: 14,
-    backgroundColor: "#542485",
-    borderWidth: 1,
-    borderColor: C.purple,
-    alignItems: "center",
-    justifyContent: "center",
-    marginRight: 10,
-  },
-  logoText: {
-    color: C.white,
-    fontSize: 27,
-    fontWeight: "900",
+    width: 52,
+    height: 52,
+    marginRight: 8,
   },
   brand: {
     color: C.white,
