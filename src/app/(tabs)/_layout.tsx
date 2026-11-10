@@ -1,24 +1,21 @@
 import { Tabs } from "expo-router";
-import { useColorScheme } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
+import { colors } from "@/constants/colors";
+
+type IconName =
+  | "home-outline"
+  | "home"
+  | "search-outline"
+  | "search"
+  | "heart-outline"
+  | "heart"
+  | "person-outline"
+  | "person";
 
 export default function TabsLayout() {
-  const scheme = useColorScheme();
   const insets = useSafeAreaInsets();
-
-  const colors = {
-    bg: "#090812",
-    card: "#171426",
-    light: "#211A32",
-    purple: "#9333EA",
-    lavender: "#D8B4FE",
-    white: "#FFFFFF",
-    text: "#E8E2F2",
-    muted: "#A49AB8",
-    border: "#302641",
-  };
 
   const navColors = {
     background: "#100D1B",
@@ -29,17 +26,15 @@ export default function TabsLayout() {
   };
 
   const renderIcon = (
-    name: string,
-    focusedName: string,
+    name: IconName,
+    focusedName: IconName,
     color: unknown,
     size: number,
     focused: boolean
   ) => (
     <Ionicons
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      name={(focused ? focusedName : name) as any}
+      name={focused ? focusedName : name}
       size={size}
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       color={(color as any) ?? (focused ? navColors.active : navColors.inactive)}
     />
   );

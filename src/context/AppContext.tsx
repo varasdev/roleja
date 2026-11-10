@@ -54,15 +54,6 @@ export type EventItem = {
   url: string;
 };
 
-const categories = [
-  { name: "Todos", icon: "apps-outline" },
-  { name: "Shows", icon: "musical-notes-outline" },
-  { name: "Festivais", icon: "sparkles-outline" },
-  { name: "Teatro", icon: "ticket-outline" },
-  { name: "Comédia", icon: "happy-outline" },
-  { name: "Esportes", icon: "football-outline" },
-] as const;
-
 const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=900";
 
@@ -299,8 +290,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!favoritesLoaded) return;
 
-    let active = true;
-
     async function saveFavorites() {
       try {
         await AsyncStorage.setItem("@roleja:favorites", JSON.stringify(favorites));
@@ -310,10 +299,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }
 
     saveFavorites();
-
-    return () => {
-      active = false;
-    };
   }, [favorites, favoritesLoaded]);
 
   // Carregar eventos da Ticketmaster
