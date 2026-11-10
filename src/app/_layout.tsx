@@ -1,12 +1,20 @@
 
 import { Stack } from "expo-router";
+import { PaperProvider } from "react-native-paper";
+import { AppProvider } from "@/context/AppContext";
 
 export default function RootLayout() {
   return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-      }}
-    />
+    <PaperProvider>
+      <AppProvider>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="(tabs)" />
+        </Stack>
+      </AppProvider>
+    </PaperProvider>
   );
 }
