@@ -38,7 +38,7 @@ export default function PerfilScreen() {
   return (
     <SafeAreaView
       style={styles.safe}
-      edges={["top", "right", "bottom", "left"]}
+      edges={["top", "right", "left"]}
     >
       <StatusBar barStyle="light-content" />
 
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
   content: {
     paddingHorizontal: 20,
     paddingTop: 14,
-    paddingBottom: 20,
+    paddingBottom: 95,
   },
   header: {
     flexDirection: "row",
